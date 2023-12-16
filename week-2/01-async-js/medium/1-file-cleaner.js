@@ -1,8 +1,8 @@
 const fs = require("fs");
 
 function readingWriting() {
-  fs.readFile("cleaner.txt", "utf-8", function (err, data) {
-    fs.writeFile("cleaner.txt", spaceRemoverLogic(data), function (err) {
+  fs.readFile("reading.txt", "utf-8", function (err, data) {
+    fs.writeFile("writing.txt", spaceRemoverLogic(data), function (err) {
       console.log("content changed");
     });
   });
