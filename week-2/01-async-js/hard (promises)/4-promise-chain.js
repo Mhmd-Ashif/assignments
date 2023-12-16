@@ -23,16 +23,16 @@ function wait3(t) {
   });
 }
 
-async function calculateTime(t1, t2, t3) {
+function calculateTime(t1, t2, t3) {
   let beforeCal = new Date().getTime();
-  return wait1(t1).then(function () {
-    wait2(t2).then(function () {
-      wait3(t3).then(function () {
+  return wait1(t1).then(() =>
+    wait2(t2).then(() =>
+      wait3(t3).then(() => {
         let afterCal = new Date().getTime();
         return afterCal - beforeCal;
-      });
-    });
-  });
+      })
+    )
+  );
 }
 
 module.exports = calculateTime;
