@@ -29,25 +29,39 @@ app.get("/files", function (req, res) {
   );
 });
 
+function toCheck(fileName) {
+  return new Promise(function (resolve, reject) {
+    fs.readdir(
+      "D:/100x Devs Cohort Assignments/assignments/week-2/02-nodejs/files",
+      "utf-8",
+      function (err, file) {
+        if (file.includes(fileName)) {
+          fs.readFile(
+            `D:/100x Devs Cohort Assignments/assignments/week-2/02-nodejs/files/${fileName}`,
+            "utf-8",
+            function (err, content) {
+              resolve();
+            }
+          );
+        } else {
+          reject();
+        }
+      }
+    );
+  });
+}
+
 app.get("/file/:filename", function (req, res) {
   const fileName = req.params.filename;
-  fs.readdir(
-    "D:/100x Devs Cohort Assignments/assignments/week-2/02-nodejs/files",
-    "utf-8",
-    function (err, file) {
-      if (file.includes(fileName)) {
-        fs.readFile(
-          `D:/100x Devs Cohort Assignments/assignments/week-2/02-nodejs/files/${fileName}`,
-          "utf-8",
-          function (err, content) {
-            res.status(200).send("Test file content");
-          }
-        );
-      } else {
-        res.status(404).send("File not found");
-      }
+  async function passRes(fname) {
+    try {
+      let output = await toCheck(fname);
+      res.status(200).send("Test file content");
+    } catch (error) {
+      res.status(404).send("File not found");
     }
-  );
+  }
+  passRes(fileName);
 });
 
 app.get("*", function (req, res) {
