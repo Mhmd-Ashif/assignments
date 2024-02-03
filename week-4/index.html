@@ -2,6 +2,17 @@
 <html>
 
 <head>
+</head>
+
+<body>
+  <input type="text" id="title" placeholder="Todo title"></input> <br /><br />
+  <input type="text" id="description" placeholder="Todo description"></input> <br /><br />
+  <button onclick="addTodo()">Add todo</button>
+  <br /> <br />
+
+  <div id="todos">
+
+  </div>
   <script>
     let globalId = 1;
     let todoState = [];
@@ -45,17 +56,6 @@
       updateState(todoState);
     }
   </script>
-</head>
-
-<body>
-  <input type="text" id="title" placeholder="Todo title"></input> <br /><br />
-  <input type="text" id="description" placeholder="Todo description"></input> <br /><br />
-  <button onclick="addTodo()">Add todo</button>
-  <br /> <br />
-
-  <div id="todos">
-
-  </div>
 </body>
 
 </html>
