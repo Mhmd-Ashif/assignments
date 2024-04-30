@@ -1,8 +1,8 @@
 // src/db/__tests__/setup.js
-import { client } from '../index';
+import { client } from "../index";
 
 export async function createTables() {
-    await client.query(`
+  await client.query(`
         CREATE TABLE IF NOT EXISTS users (
             id SERIAL PRIMARY KEY,
             username VARCHAR(255) UNIQUE NOT NULL,
@@ -11,7 +11,7 @@ export async function createTables() {
         );
     `);
 
-    await client.query(`
+  await client.query(`
         CREATE TABLE IF NOT EXISTS todos (
             id SERIAL PRIMARY KEY,
             user_id INTEGER NOT NULL REFERENCES users(id),
@@ -23,8 +23,8 @@ export async function createTables() {
 }
 
 export async function dropTables() {
-    await client.query(`DROP TABLE IF EXISTS todos;`);
-    await client.query(`DROP TABLE IF EXISTS users;`);
+  await client.query(`DROP TABLE IF EXISTS todos;`);
+  await client.query(`DROP TABLE IF EXISTS users;`);
 }
 
 module.exports = { createTables, dropTables };
