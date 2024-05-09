@@ -1,6 +1,6 @@
 ## Deployed Link ⬇️
 
-[Click here] [https://my-app.mohamedashif18se.workers.dev/]
+[Click here] (https://my-app.mohamedashif18se.workers.dev/)
 
 ## Simple Cloudflare app
 
