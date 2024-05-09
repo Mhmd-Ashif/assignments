@@ -1,3 +1,7 @@
+## Deployed Link ⬇️
+
+[Click here] [https://my-app.mohamedashif18se.workers.dev/]
+
 ## Simple Cloudflare app
 
 The goal is to build the backend of a `Blogging Platform`.
