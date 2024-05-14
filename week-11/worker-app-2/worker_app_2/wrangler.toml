@@ -1,0 +1,22 @@
+name = "worker_app_2"
+compatibility_date = "2023-12-01"
+
+[vars]
+DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiYWViZWUyMDMtODgyOC00MzcwLTk0N2MtYjU3NWZiY2I3Y2YyIiwidGVuYW50X2lkIjoiNjc4OWU5Mzc4NTAyNTM5Zjk0MDBjOTM4YmEyMjIxMTc0OTVjN2QzMWEyYmQ0ZWFmZDVhNTMxMDMxNDJmOTdkOCIsImludGVybmFsX3NlY3JldCI6IjlmOWEzMzcyLTQ1NDUtNGI4Mi04YjM5LWUzMTYxYmQxOTEzOSJ9.2vn62fKbyGKawJyKXLtr-rRDfA-JrOkgm5oeeMZeCxk"
+PAYLOAD = "THISISAPAYLOADFORTHEWORKERAPP2"
+
+# [[kv_namespaces]]
+# binding = "MY_KV_NAMESPACE"
+# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# [[r2_buckets]]
+# binding = "MY_BUCKET"
+# bucket_name = "my-bucket"
+
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "my-database"
+# database_id = ""
+
+# [ai]
+# binding = "AI"
