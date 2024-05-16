@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// one survey can have multiple questions so `1 - many` [S-Q]
+model Survey {
+  id Int @id @default(autoincrement())
+  title String
+  question Questions[]
+}
+
+// Multiple question should be come under one survey title so `many - 1` - [Q - S]
+// one question can have multiple options so `1-many`
+model Questions {
+  id Int @id @default(autoincrement())
+  text String
+  surveyId Int
+  survey Survey @relation(fields: [surveyId], references: [id],onDelete: Cascade)
+  options Options[]
+}
+
+
+//multiple options should comes under one single Question so `many-1` [O-Q] 
+model Options {
+  id Int @id @default(autoincrement())
+  text String
+  questionId Int
+  question Questions @relation(fields: [questionId],references: [id],onDelete: Cascade)
+}
