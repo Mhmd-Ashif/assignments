@@ -127,7 +127,6 @@ router.put("/:id", async (req, res) => {
       data: { title },
     });
 
-    // Update or create questions and options
     for (let i = 0; i < questions.length; i++) {
       const question = existingSurvey.question[i];
       const existingQuestion = existingSurvey.question.find(
